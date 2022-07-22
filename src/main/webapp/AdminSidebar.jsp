@@ -47,7 +47,7 @@
 			
 			<li class=""><a  href="ListUserController">
 						<i class="flaticon-077-menu-1"></i>
-							<span class="nav-text">Apps</span>
+							<span class="nav-text">List Users</span>
 						</a>
                     </li>
 

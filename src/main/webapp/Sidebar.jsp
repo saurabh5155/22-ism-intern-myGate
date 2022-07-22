@@ -52,17 +52,22 @@
 				<ul aria-expanded="false" class="mm-collapse mm-show left">
 
 					<li><a href="AddHouse.jsp">Add Your House </a></li>
+					<li><a href="ListHouseController">List House </a></li>
 
 				</ul></li>
-
+			
 
 
 			<li class=""><a href="GetMemberHouseNumber?temp=AddMember"> <i
 					class="flaticon-077-menu-1"></i> <span class="nav-text">Add
 						Member</span>
 			</a></li>
-
-
+				
+			<li class=""><a href="ViewMemberByIdController"> <i
+					class="flaticon-077-menu-1"></i> <span class="nav-text">List
+						Member</span>
+			</a></li>
+			
 			<li class=""><a href="GetMemberHouseNumber?temp=AddInstruction"> <i
 					class="flaticon-077-menu-1"></i> <span class="nav-text">Add
 						Instruction</span>

@@ -9,8 +9,8 @@
 <jsp:include page="Css.jsp"></jsp:include>
 </head>
 <body>
-	<jsp:include page="AdminHeader.jsp"></jsp:include>
-	<jsp:include page="AdminSidebar.jsp"></jsp:include>
+	<jsp:include page="Header.jsp"></jsp:include>
+	<jsp:include page="Sidebar.jsp"></jsp:include>
 	<div class="content-body">
 		<div class="container-fluid">
 			<!-- Add Project -->
@@ -109,66 +109,35 @@
 												<th class="sorting" tabindex="0" aria-controls="example"
 													rowspan="1" colspan="1"
 													aria-label="Age: activate to sort column ascending"
-													style="width: 40.8281px;">User Id</th>
+													style="width: 40.8281px;">House Id</th>
 												<th class="sorting" tabindex="0" aria-controls="example"
 													rowspan="1" colspan="1"
 													aria-label="Age: activate to sort column ascending"
-													style="width: 40.8281px;">First Name</th>
+													style="width: 40.8281px;">House number</th>
 												<th class="sorting" tabindex="0" aria-controls="example"
 													rowspan="1" colspan="1"
 													aria-label="Age: activate to sort column ascending"
-													style="width: 40.8281px;">Last Name</th>
-												<th class="sorting" tabindex="0" aria-controls="example"
-													rowspan="1" colspan="1"
-													aria-label="Start date: activate to sort column ascending"
-													style="width: 85.7188px;">Email</th>
-												<th class="sorting" tabindex="0" aria-controls="example"
-													rowspan="1" colspan="1"
-													aria-label="Salary: activate to sort column ascending"
-													style="width: 83.5078px;">Gender</th>
-												<th class="sorting" tabindex="0" aria-controls="example"
-													rowspan="1" colspan="1"
-													aria-label="Salary: activate to sort column ascending"
-													style="width: 83.5078px;">Number</th>
-												<th class="sorting" tabindex="0" aria-controls="example"
-													rowspan="1" colspan="1"
-													aria-label="Salary: activate to sort column ascending"
-													style="width: 83.5078px;">Action</th>
+													style="width: 40.8281px;">Action</th>
+
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach items="${listUser}" var="it">
-												<c:if test="${it.approvel == 'pending' }">
-													<tr class="odd" role="row">
-														<td class="sorting_1">${it.userId }</td>
-														<td>${it.firstName }</td>
-														<td>${it.lastName }</td>
-														<td>${it.email }</td>
-														<td>${it.gender }</td>
-														<td>${it.number }</td>
-														<td>
-																<a class="badge light badge-success" href="ApproveDoneController?userId=${it.userId }">Approve</a>
-															
-															
-																<a class="btn btn-danger shadow btn-xs sharp" href="DeleteUserController?userId=${it.userId }">
-																	<i class="fa fa-trash"></i> </a>
-															<a class="badge light badge-danger" href="ViewMemberByIdController?userId=${it.userId }">---</a>
-															
-															</td>
-												</c:if>
+											<c:forEach items="${listHouse}" var="it">
+
+												<tr class="odd" role="row">
+													<%-- <td class="sorting_1">${it.userId }</td> --%>
+													<td>${it.houseId }</td>
+													<td>${it.houseBlock }</td>
+													<td><a href="HouseByHouseId?houseId=${it.houseId }"
+														class="btn btn-primary shadow btn-xs sharp mr-1"><i
+															class="fa fa-pencil"></i></a> 
+															<a href="DeleteHouseController?houseId=${it.houseId }"
+														class="btn btn-danger shadow btn-xs sharp"><i
+															class="fa fa-trash"></i></a></td>
 												</tr>
 											</c:forEach>
 										</tbody>
-										<tfoot>
-											<tr>
-												<th rowspan="1" colspan="1">Name</th>
-												<th rowspan="1" colspan="1">Position</th>
-												<th rowspan="1" colspan="1">Office</th>
-												<th rowspan="1" colspan="1">Age</th>
-												<th rowspan="1" colspan="1">Start date</th>
-												<th rowspan="1" colspan="1">Salary</th>
-											</tr>
-										</tfoot>
+
 									</table>
 									<div class="dataTables_info" id="example_info" role="status"
 										aria-live="polite">Showing 1 to 10 of 57 entries</div>
@@ -193,84 +162,14 @@
 									</div>
 								</div>
 							</div>
-							<div class="card-header">
-								<h4 class="card-title">Aprrove People</h4>
-							</div>
-							<table id="example" class="display dataTable"
-								style="min-width: 845px" role="grid"
-								aria-describedby="example_info">
-								<thead>
-									<tr role="row">
-										<th class="sorting" tabindex="0" aria-controls="example"
-											rowspan="1" colspan="1"
-											aria-label="Age: activate to sort column ascending"
-											style="width: 40.8281px;">User Id</th>
-										<th class="sorting" tabindex="0" aria-controls="example"
-											rowspan="1" colspan="1"
-											aria-label="Age: activate to sort column ascending"
-											style="width: 40.8281px;">First Name</th>
-										<th class="sorting" tabindex="0" aria-controls="example"
-											rowspan="1" colspan="1"
-											aria-label="Age: activate to sort column ascending"
-											style="width: 40.8281px;">Last Name</th>
-										<th class="sorting" tabindex="0" aria-controls="example"
-											rowspan="1" colspan="1"
-											aria-label="Start date: activate to sort column ascending"
-											style="width: 85.7188px;">Email</th>
-										<th class="sorting" tabindex="0" aria-controls="example"
-											rowspan="1" colspan="1"
-											aria-label="Salary: activate to sort column ascending"
-											style="width: 83.5078px;">Gender</th>
-										<th class="sorting" tabindex="0" aria-controls="example"
-											rowspan="1" colspan="1"
-											aria-label="Salary: activate to sort column ascending"
-											style="width: 83.5078px;">Number</th>
-										<th class="sorting" tabindex="0" aria-controls="example"
-											rowspan="1" colspan="1"
-											aria-label="Salary: activate to sort column ascending"
-											style="width: 83.5078px;">Action</th>
 
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${listUser}" var="it">
-										<c:if test="${it.approvel == 'done' }">
-											<tr class="odd" role="row">
-												<td class="sorting_1">${it.userId }</td>
-												<td>${it.firstName }</td>
-												<td>${it.lastName }</td>
-												<td>${it.email }</td>
-												<td>${it.gender }</td>
-												<td>${it.number }</td>
-												<td>
-													<a class="badge light badge-danger" href="ViewMemberByIdController?userId=${it.userId }">---</a>
-												</td>
-
-
-											</tr>
-										</c:if>
-									</c:forEach>
-								</tbody>
-								<tfoot>
-									<tr>
-										<th rowspan="1" colspan="1">Name</th>
-										<th rowspan="1" colspan="1">Position</th>
-										<th rowspan="1" colspan="1">Office</th>
-										<th rowspan="1" colspan="1">Age</th>
-										<th rowspan="1" colspan="1">Start date</th>
-										<th rowspan="1" colspan="1">Salary</th>
-									</tr>
-								</tfoot>
-							</table>
 						</div>
 					</div>
-				</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<jsp:include page="Js.jsp"></jsp:include>
-
+		<jsp:include page="Js.jsp"></jsp:include>
 </body>
 </html>
